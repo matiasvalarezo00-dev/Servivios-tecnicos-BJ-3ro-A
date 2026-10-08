@@ -1,0 +1,456 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5efdf;
+    color: #304d3b;
+}
+
+/* BARRA IZQUIERDA */
+.barra-lateral {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 210px;
+    height: 100vh;
+    background: #285c3f;
+    padding: 12px;
+}
+
+/* PERFIL */
+.perfil {
+    background: #f5efdf;
+    padding: 12px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.perfil-imagen {
+    width: 100%;
+    height: 85px;
+    background: #e7dec9;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.perfil-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.perfil h1 {
+    color: #285c3f;
+    font-size: 19px;
+    line-height: 1.1;
+}
+
+.perfil h2 {
+    color: #4b604e;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+.perfil p {
+    color: #536356;
+    font-size: 11px;
+    margin-top: 7px;
+}
+
+/* MENU */
+.menu {
+    background: #f5efdf;
+    padding: 7px;
+}
+
+.menu-boton {
+    display: block;
+    padding: 10px 6px;
+    margin-bottom: 5px;
+    background: #e7dec9;
+    color: #285c3f;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* SOLO EL BOTÓN SELECCIONADO CAMBIA */
+.menu-boton.activo {
+    background: #285c3f;
+    color: #f5efdf;
+}
+
+/* EL MOUSE NO CAMBIA EL COLOR */
+.menu-boton:hover {
+    background: #e7dec9;
+    color: #285c3f;
+}
+
+/* INFORMACIÓN */
+.lateral-informacion {
+    background: #e7dec9;
+    padding: 10px;
+    margin-top: 12px;
+}
+
+.lateral-informacion h3 {
+    color: #285c3f;
+    margin-bottom: 7px;
+    font-size: 15px;
+}
+
+.lateral-informacion p {
+    color: #405344;
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenido {
+    margin-left: 210px;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* SECCIONES */
+.pagina-seccion {
+    display: none;
+    max-width: 1050px;
+    margin: 0 auto 25px;
+}
+
+.pagina-seccion.activa {
+    display: block;
+}
+
+/* TITULOS */
+.titulo-seccion {
+    background: #285c3f;
+    color: #f5efdf;
+    padding: 14px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.titulo-seccion h2 {
+    font-size: 22px;
+}
+
+/* INICIO */
+.cuadro-inicio {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 15px;
+}
+
+.inicio-texto {
+    background: #fffaf0;
+    padding: 22px;
+}
+
+.inicio-texto h3 {
+    color: #285c3f;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.inicio-texto p {
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.inicio-imagen {
+    background: #e7dec9;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inicio-imagen img {
+    width: 100%;
+    max-height: 230px;
+    object-fit: contain;
+}
+
+/* BOTONES */
+.boton {
+    display: inline-block;
+    background: #285c3f;
+    color: #f5efdf;
+    text-decoration: none;
+    padding: 10px 16px;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background: #285c3f;
+    color: #f5efdf;
+}
+
+/* SERVICIOS */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.cuadro-servicio {
+    padding: 15px;
+}
+
+.cuadro-servicio.verde {
+    background: #e7dec9;
+}
+
+.cuadro-servicio.verde-claro {
+    background: #fffaf0;
+}
+
+.titulo-tarjeta {
+    background: #285c3f;
+    color: #f5efdf;
+    padding: 12px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.contenido-tarjeta {
+    display: grid;
+    gap: 6px;
+}
+
+.contenido-tarjeta p {
+    background: #f5efdf;
+    padding: 9px;
+    color: #405344;
+}
+
+/* BENEFICIOS */
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.cuadro-beneficio {
+    background: #fffaf0;
+    padding: 20px 12px;
+    text-align: center;
+}
+
+.cuadro-beneficio:nth-child(even) {
+    background: #e7dec9;
+}
+
+.cuadro-beneficio h3 {
+    color: #285c3f;
+    margin-bottom: 8px;
+}
+
+/* TABLA */
+.tabla-cuadro {
+    background: #fffaf0;
+    padding: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #285c3f;
+    color: #f5efdf;
+    padding: 11px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    background: #f5efdf;
+    border-bottom: 2px solid #fffaf0;
+}
+
+.nota {
+    background: #e7dec9;
+    padding: 11px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* FORMULARIO */
+.formulario-cuadro {
+    background: #fffaf0;
+    padding: 22px;
+}
+
+.formulario-texto {
+    background: #e7dec9;
+    padding: 14px;
+    margin-bottom: 15px;
+}
+
+.formulario-texto h3 {
+    color: #285c3f;
+    margin-bottom: 6px;
+}
+
+.campo {
+    margin-bottom: 12px;
+}
+
+.campo label {
+    display: block;
+    color: #285c3f;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d6ccb5;
+    background: #f5efdf;
+    color: #304d3b;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: #285c3f;
+}
+
+/* BOTONES DEL FORMULARIO */
+.botones {
+    display: flex;
+    gap: 8px;
+}
+
+.botones button {
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.botones button[type="submit"] {
+    background: #285c3f;
+    color: #f5efdf;
+}
+
+.boton-eliminar {
+    background: #d8ccb2;
+    color: #285c3f;
+}
+
+.boton-limpiar {
+    background: #e7dec9;
+    color: #285c3f;
+}
+
+/* SIN CAMBIO DE COLOR AL PASAR EL MOUSE */
+.botones button:hover {
+    opacity: 1;
+}
+
+#mensajeFormulario {
+    color: #285c3f;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+/* CONTACTO DIRECTO */
+.contacto-directo {
+    max-width: 1050px;
+    margin: 0 auto 25px;
+}
+
+.contactos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.contacto-cuadro {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.contacto-cuadro.correo {
+    background: #fffaf0;
+}
+
+.contacto-cuadro.whatsapp {
+    background: #e7dec9;
+}
+
+.contacto-cuadro.local {
+    background: #e7dec9;
+}
+
+.contacto-cuadro.horario {
+    background: #fffaf0;
+}
+
+.contacto-imagen {
+    width: 60px;
+    height: 60px;
+    background: #f5efdf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contacto-imagen img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.contacto-imagen.texto {
+    color: #285c3f;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.contacto-cuadro h3 {
+    color: #285c3f;
+    margin-bottom: 5px;
+}
+
+.contacto-cuadro a {
+    color: #477a5a;
+    text-decoration: none;
+}
+
+/* PIE */
+.footer-cuadro {
+    max-width: 1050px;
+    margin: 0 auto;
+    background: #285c3f;
+    color: #f5efdf;
+    padding: 15px;
+    text-align: center;
+}
+
+.footer-cuadro p {
+    margin-bottom: 5px;
+}

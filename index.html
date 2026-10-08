@@ -1,0 +1,1280 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnico Informático y Diseño Web</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5efdf;
+            color: #304d3b;
+        }
+
+        /* BARRA IZQUIERDA */
+        .barra-lateral {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 210px;
+            height: 100vh;
+            background: #285c3f;
+            padding: 12px;
+        }
+
+        /* PERFIL */
+        .perfil {
+            background: #f5efdf;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .perfil-imagen {
+            width: 100%;
+            height: 85px;
+            background: #e7dec9;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .perfil-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .perfil h1 {
+            color: #285c3f;
+            font-size: 19px;
+            line-height: 1.1;
+        }
+
+        .perfil h2 {
+            color: #4b604e;
+            font-size: 14px;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+
+        .perfil p {
+            color: #536356;
+            font-size: 11px;
+            margin-top: 7px;
+        }
+
+        /* MENU */
+        .menu {
+            background: #f5efdf;
+            padding: 7px;
+        }
+
+        .menu-boton {
+            display: block;
+            padding: 10px 6px;
+            margin-bottom: 5px;
+            background: #e7dec9;
+            color: #285c3f;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .menu-boton.activo {
+            background: #285c3f;
+            color: #f5efdf;
+        }
+
+        .menu-boton:hover {
+            background: #e7dec9;
+            color: #285c3f;
+        }
+
+        /* INFORMACIÓN */
+        .lateral-informacion {
+            background: #e7dec9;
+            padding: 10px;
+            margin-top: 12px;
+        }
+
+        .lateral-informacion h3 {
+            color: #285c3f;
+            margin-bottom: 7px;
+            font-size: 15px;
+        }
+
+        .lateral-informacion p {
+            color: #405344;
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .contenido {
+            margin-left: 210px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* SECCIONES */
+        .pagina-seccion {
+            display: none;
+            max-width: 1050px;
+            margin: 0 auto 25px;
+        }
+
+        .pagina-seccion.activa {
+            display: block;
+        }
+
+        /* TITULOS */
+        .titulo-seccion {
+            background: #285c3f;
+            color: #f5efdf;
+            padding: 14px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .titulo-seccion h2 {
+            font-size: 22px;
+        }
+
+        /* INICIO */
+        .cuadro-inicio {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 15px;
+        }
+
+        .inicio-texto {
+            background: #fffaf0;
+            padding: 22px;
+        }
+
+        .inicio-texto h3 {
+            color: #285c3f;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .inicio-texto p {
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .inicio-imagen {
+            background: #e7dec9;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inicio-imagen img {
+            width: 100%;
+            max-height: 230px;
+            object-fit: contain;
+        }
+
+        /* BOTONES */
+        .boton {
+            display: inline-block;
+            background: #285c3f;
+            color: #f5efdf;
+            text-decoration: none;
+            padding: 10px 16px;
+            margin-top: 4px;
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background: #285c3f;
+            color: #f5efdf;
+        }
+
+        /* SERVICIOS */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .cuadro-servicio {
+            padding: 15px;
+        }
+
+        .cuadro-servicio.verde {
+            background: #e7dec9;
+        }
+
+        .cuadro-servicio.verde-claro {
+            background: #fffaf0;
+        }
+
+        .titulo-tarjeta {
+            background: #285c3f;
+            color: #f5efdf;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .contenido-tarjeta {
+            display: grid;
+            gap: 6px;
+        }
+
+        .contenido-tarjeta p {
+            background: #f5efdf;
+            padding: 9px;
+            color: #405344;
+        }
+
+        /* BENEFICIOS */
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .cuadro-beneficio {
+            background: #fffaf0;
+            padding: 20px 12px;
+            text-align: center;
+        }
+
+        .cuadro-beneficio:nth-child(even) {
+            background: #e7dec9;
+        }
+
+        .cuadro-beneficio h3 {
+            color: #285c3f;
+            margin-bottom: 8px;
+        }
+
+        /* TABLA */
+        .tabla-cuadro {
+            background: #fffaf0;
+            padding: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #285c3f;
+            color: #f5efdf;
+            padding: 11px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            background: #f5efdf;
+            border-bottom: 2px solid #fffaf0;
+        }
+
+        .nota {
+            background: #e7dec9;
+            padding: 11px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* FORMULARIO */
+        .formulario-cuadro {
+            background: #fffaf0;
+            padding: 22px;
+        }
+
+        .formulario-texto {
+            background: #e7dec9;
+            padding: 14px;
+            margin-bottom: 15px;
+        }
+
+        .formulario-texto h3 {
+            color: #285c3f;
+            margin-bottom: 6px;
+        }
+
+        .campo {
+            margin-bottom: 12px;
+        }
+
+        .campo label {
+            display: block;
+            color: #285c3f;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .campo input,
+        .campo select,
+        .campo textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #d6ccb5;
+            background: #f5efdf;
+            color: #304d3b;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .campo input:focus,
+        .campo select:focus,
+        .campo textarea:focus {
+            border-color: #285c3f;
+        }
+
+        /* BOTONES DEL FORMULARIO */
+        .botones {
+            display: flex;
+            gap: 8px;
+        }
+
+        .botones button {
+            border: none;
+            padding: 10px 14px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .botones button[type="submit"] {
+            background: #285c3f;
+            color: #f5efdf;
+        }
+
+        .boton-eliminar {
+            background: #d8ccb2;
+            color: #285c3f;
+        }
+
+        .boton-limpiar {
+            background: #e7dec9;
+            color: #285c3f;
+        }
+
+        .botones button:hover {
+            opacity: 1;
+        }
+
+        #mensajeFormulario {
+            color: #285c3f;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        /* CONTACTO DIRECTO */
+        .contacto-directo {
+            max-width: 1050px;
+            margin: 0 auto 25px;
+        }
+
+        .contactos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .contacto-cuadro {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .contacto-cuadro.correo {
+            background: #fffaf0;
+        }
+
+        .contacto-cuadro.whatsapp {
+            background: #e7dec9;
+        }
+
+        .contacto-cuadro.local {
+            background: #e7dec9;
+        }
+
+        .contacto-cuadro.horario {
+            background: #fffaf0;
+        }
+
+        .contacto-imagen {
+            width: 60px;
+            height: 60px;
+            background: #f5efdf;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contacto-imagen img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .contacto-imagen.texto {
+            color: #285c3f;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .contacto-cuadro h3 {
+            color: #285c3f;
+            margin-bottom: 5px;
+        }
+
+        .contacto-cuadro a {
+            color: #477a5a;
+            text-decoration: none;
+        }
+
+        /* PIE */
+        .footer-cuadro {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: #285c3f;
+            color: #f5efdf;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .footer-cuadro p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pagina">
+
+        <aside class="barra-lateral">
+
+            <div class="perfil">
+
+                <div class="perfil-imagen">
+                    <img src="Imaganes/foto2.png" alt="Computadora">
+                </div>
+
+                <h1>Técnico<br>Informático</h1>
+                <h2>& Diseño Web</h2>
+
+                <p>Soluciones tecnológicas a tu medida</p>
+
+            </div>
+
+            <nav class="menu">
+
+                <a href="#inicio" class="menu-boton activo">
+                    Inicio
+                </a>
+
+                <a href="#servicios" class="menu-boton">
+                    Servicios
+                </a>
+
+                <a href="#beneficios" class="menu-boton">
+                    Beneficios
+                </a>
+
+                <a href="#precios" class="menu-boton">
+                    Precios
+                </a>
+
+                <a href="#contacto" class="menu-boton">
+                    Contacto
+                </a>
+
+            </nav>
+
+            <div class="lateral-informacion">
+
+                <h3>Información</h3>
+
+                <p>Atención técnica</p>
+                <p>Diseño web</p>
+                <p>Servicio local y remoto</p>
+
+            </div>
+
+        </aside>
+
+
+        <main class="contenido">
+
+            <!-- INICIO -->
+            <section id="inicio" class="pagina-seccion activa">
+
+                <div class="titulo-seccion">
+                    <h2>¿Necesitas ayuda técnica o una página web?</h2>
+                </div>
+
+                <div class="cuadro-inicio">
+
+                    <div class="inicio-texto">
+
+                        <h3>Soluciones tecnológicas</h3>
+
+                        <p>
+                            Ofrezco servicios de reparación de computadoras,
+                            mantenimiento preventivo y correctivo, además de
+                            creación y diseño de páginas web modernas y funcionales.
+                        </p>
+
+                        <p>
+                            Atención personalizada, precios accesibles y
+                            responsabilidad en cada trabajo realizado.
+                        </p>
+
+                        <a href="#contacto" class="boton">
+                            Solicita tu presupuesto
+                        </a>
+
+                    </div>
+
+                    <div class="inicio-imagen">
+
+                        <img src="Imaganes/foto.png" alt="Diseño web">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SERVICIOS -->
+            <section id="servicios" class="pagina-seccion">
+
+                <div class="titulo-seccion">
+                    <h2>Mis Servicios</h2>
+                </div>
+
+                <div class="servicios-grid">
+
+                    <article class="cuadro-servicio verde">
+
+                        <div class="titulo-tarjeta">
+                            <h3>Técnico en Informática</h3>
+                        </div>
+
+                        <div class="contenido-tarjeta">
+
+                            <p>Reparación de computadoras</p>
+                            <p>Eliminación de virus y malware</p>
+                            <p>Instalación de Windows y Linux</p>
+                            <p>Instalación de programas</p>
+                            <p>Mantenimiento preventivo y correctivo</p>
+                            <p>Recuperación de datos</p>
+                            <p>Actualización de RAM y SSD</p>
+                            <p>Configuración de redes e internet</p>
+                            <p>Asesoría técnica personalizada</p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="cuadro-servicio verde-claro">
+
+                        <div class="titulo-tarjeta">
+                            <h3>Creación y Diseño Web</h3>
+                        </div>
+
+                        <div class="contenido-tarjeta">
+
+                            <p>Diseño de páginas web</p>
+                            <p>Páginas para negocios</p>
+                            <p>Portafolios personales</p>
+                            <p>Tiendas online básicas</p>
+                            <p>Páginas promocionales</p>
+                            <p>Optimización básica</p>
+                            <p>Mantenimiento de sitios web</p>
+                            <p>Dominio y hosting</p>
+                            <p>Asesoría en presencia digital</p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- BENEFICIOS -->
+            <section id="beneficios" class="pagina-seccion">
+
+                <div class="titulo-seccion">
+                    <h2>¿Por qué elegirme?</h2>
+                </div>
+
+                <div class="beneficios-grid">
+
+                    <div class="cuadro-beneficio">
+                        <h3>Rapidez</h3>
+                        <p>Respuesta rápida y atención responsable.</p>
+                    </div>
+
+                    <div class="cuadro-beneficio">
+                        <h3>Precios justos</h3>
+                        <p>Presupuestos claros y accesibles.</p>
+                    </div>
+
+                    <div class="cuadro-beneficio">
+                        <h3>Garantía</h3>
+                        <p>Trabajos realizados con responsabilidad.</p>
+                    </div>
+
+                    <div class="cuadro-beneficio">
+                        <h3>Trato personal</h3>
+                        <p>Atención directa y personalizada.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PRECIOS -->
+            <section id="precios" class="pagina-seccion">
+
+                <div class="titulo-seccion">
+                    <h2>Precios de referencia</h2>
+                </div>
+
+                <div class="tabla-cuadro">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Servicio</th>
+                                <th>Precio orientativo</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Diagnóstico y presupuesto</td>
+                                <td>Gratis</td>
+                            </tr>
+
+                            <tr>
+                                <td>Mantenimiento básico de PC</td>
+                                <td>Desde $30</td>
+                            </tr>
+
+                            <tr>
+                                <td>Eliminación de virus y optimización</td>
+                                <td>Desde $40</td>
+                            </tr>
+
+                            <tr>
+                                <td>Instalación de sistema operativo</td>
+                                <td>Desde $50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Página web básica</td>
+                                <td>Desde $150</td>
+                            </tr>
+
+                            <tr>
+                                <td>Página web profesional</td>
+                                <td>Desde $300</td>
+                            </tr>
+
+                            <tr>
+                                <td>Tienda online básica</td>
+                                <td>Desde $500</td>
+                            </tr>
+
+                            <tr>
+                                <td>Mantenimiento web mensual</td>
+                                <td>Desde $50/mes</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="nota">
+                    Los precios pueden variar según la complejidad del trabajo.
+                </div>
+
+            </section>
+
+
+            <!-- CONTACTO -->
+            <section id="contacto" class="pagina-seccion">
+
+                <div class="titulo-seccion">
+                    <h2>Contacto</h2>
+                </div>
+
+                <div class="formulario-cuadro">
+
+                    <div class="formulario-texto">
+
+                        <h3>Entra en contacto conmigo</h3>
+
+                        <p>
+                            Completa el formulario para solicitar información
+                            sobre cualquiera de mis servicios.
+                        </p>
+
+                    </div>
+
+
+                    <form id="formulario">
+
+                        <div class="campo">
+
+                            <label for="nombre">
+                                Nombre completo
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nombre"
+                                placeholder="Escribe tu nombre"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="email">
+                                Correo electrónico
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="ejemplo@correo.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="telefono">
+                                Teléfono
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="telefono"
+                                placeholder="Número de teléfono"
+                            >
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="servicio">
+                                Tipo de servicio
+                            </label>
+
+                            <select id="servicio">
+
+                                <option value="Técnico en informática">
+                                    Técnico en informática
+                                </option>
+
+                                <option value="Creación de página web">
+                                    Creación de página web
+                                </option>
+
+                                <option value="Ambos servicios">
+                                    Ambos servicios
+                                </option>
+
+                                <option value="Otro">
+                                    Otro
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="mensaje">
+                                Mensaje
+                            </label>
+
+                            <textarea
+                                id="mensaje"
+                                rows="5"
+                                placeholder="Escribe tu consulta..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="botones">
+
+                            <button type="submit">
+                                Guardar información
+                            </button>
+
+                            <button
+                                type="button"
+                                id="eliminar"
+                                class="boton-eliminar"
+                            >
+                                Eliminar información
+                            </button>
+
+                            <button
+                                type="reset"
+                                class="boton-limpiar"
+                            >
+                                Limpiar
+                            </button>
+
+                        </div>
+
+                        <p id="mensajeFormulario"></p>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+
+            <!-- CONTACTO DIRECTO -->
+            <section class="contacto-directo">
+
+                <div class="titulo-seccion">
+                    <h2>También puedes contactarme directamente</h2>
+                </div>
+
+                <div class="contactos-grid">
+
+
+                    <div class="contacto-cuadro correo">
+
+                        <div class="contacto-imagen">
+
+                            <img
+                                src="Imaganes/correo.png"
+                                alt="Correo"
+                            >
+
+                        </div>
+
+                        <div>
+
+                            <h3>Correo electrónico</h3>
+
+                            <a href="mailto:matiasvalarezo00@gmail.com">
+                                matiasvalarezo00@gmail.com
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contacto-cuadro whatsapp">
+
+                        <div class="contacto-imagen">
+
+                            <img
+                                src="Imaganes/whatsapp.png"
+                                alt="WhatsApp"
+                            >
+
+                        </div>
+
+                        <div>
+
+                            <h3>WhatsApp</h3>
+
+                            <a
+                                href="https://wa.me/593995255892"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                +593 099 525 5892
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contacto-cuadro local">
+
+                        <div class="contacto-imagen texto">
+                            LOCAL
+                        </div>
+
+                        <div>
+
+                            <h3>Zona de cobertura</h3>
+
+                            <p>
+                                Servicio local y remoto
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contacto-cuadro horario">
+
+                        <div class="contacto-imagen texto">
+                            HORARIO
+                        </div>
+
+                        <div>
+
+                            <h3>Horario</h3>
+
+                            <p>
+                                Lunes a viernes de 9:00 a 19:00
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- PIE -->
+            <footer>
+
+                <div class="footer-cuadro">
+
+                    <p>
+                        © 2026 Técnico en Informática - Matias Valarezo
+                    </p>
+
+                    <p>
+                        Página educativa creada con HTML, CSS y JavaScript.
+                    </p>
+
+                </div>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script>
+
+        const enlaces = document.querySelectorAll(".menu-boton");
+        const secciones = document.querySelectorAll(".pagina-seccion");
+        const formulario = document.getElementById("formulario");
+        const mensajeFormulario =
+            document.getElementById("mensajeFormulario");
+        const eliminar =
+            document.getElementById("eliminar");
+
+
+        function mostrarSeccion(id) {
+
+            secciones.forEach(seccion => {
+
+                seccion.classList.remove("activa");
+
+            });
+
+
+            const seccion =
+                document.querySelector(id);
+
+
+            if (seccion) {
+
+                seccion.classList.add("activa");
+
+            }
+
+
+            enlaces.forEach(enlace => {
+
+                enlace.classList.remove("activo");
+
+
+                if (
+                    enlace.getAttribute("href") === id
+                ) {
+
+                    enlace.classList.add("activo");
+
+                }
+
+            });
+
+
+            window.scrollTo({
+
+                top: 0,
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+        enlaces.forEach(enlace => {
+
+            enlace.addEventListener(
+                "click",
+                function(evento) {
+
+                    evento.preventDefault();
+
+
+                    const destino =
+                        this.getAttribute("href");
+
+
+                    mostrarSeccion(destino);
+
+
+                    history.pushState(
+                        null,
+                        "",
+                        destino
+                    );
+
+                }
+            );
+
+        });
+
+
+        document
+            .querySelectorAll(".boton[href]")
+            .forEach(boton => {
+
+                boton.addEventListener(
+                    "click",
+                    function(evento) {
+
+                        evento.preventDefault();
+
+
+                        const destino =
+                            this.getAttribute("href");
+
+
+                        mostrarSeccion(destino);
+
+
+                        history.pushState(
+                            null,
+                            "",
+                            destino
+                        );
+
+                    }
+                );
+
+            });
+
+
+        window.addEventListener(
+            "popstate",
+            function() {
+
+                const destino =
+                    window.location.hash ||
+                    "#inicio";
+
+
+                mostrarSeccion(destino);
+
+            }
+        );
+
+
+        function guardarInformacion() {
+
+            const informacion = {
+
+                nombre:
+                    document.getElementById("nombre").value,
+
+                email:
+                    document.getElementById("email").value,
+
+                telefono:
+                    document.getElementById("telefono").value,
+
+                servicio:
+                    document.getElementById("servicio").value,
+
+                mensaje:
+                    document.getElementById("mensaje").value
+
+            };
+
+
+            localStorage.setItem(
+                "informacionContacto",
+                JSON.stringify(informacion)
+            );
+
+        }
+
+
+        function cargarInformacion() {
+
+            const datos =
+                localStorage.getItem(
+                    "informacionContacto"
+                );
+
+
+            if (!datos) {
+
+                return;
+
+            }
+
+
+            const informacion =
+                JSON.parse(datos);
+
+
+            document.getElementById("nombre").value =
+                informacion.nombre || "";
+
+
+            document.getElementById("email").value =
+                informacion.email || "";
+
+
+            document.getElementById("telefono").value =
+                informacion.telefono || "";
+
+
+            document.getElementById("servicio").value =
+                informacion.servicio ||
+                "Técnico en informática";
+
+
+            document.getElementById("mensaje").value =
+                informacion.mensaje || "";
+
+        }
+
+
+        formulario.addEventListener(
+            "submit",
+            function(evento) {
+
+                evento.preventDefault();
+
+
+                guardarInformacion();
+
+
+                mensajeFormulario.textContent =
+                    "La información se guardó correctamente en este dispositivo.";
+
+
+                formulario.reset();
+
+            }
+        );
+
+
+        eliminar.addEventListener(
+            "click",
+            function() {
+
+                const confirmar =
+                    confirm(
+                        "¿Deseas eliminar toda la información guardada?"
+                    );
+
+
+                if (confirmar) {
+
+                    localStorage.removeItem(
+                        "informacionContacto"
+                    );
+
+
+                    formulario.reset();
+
+
+                    mensajeFormulario.textContent =
+                        "La información guardada fue eliminada.";
+
+                }
+
+            }
+        );
+
+
+        formulario.addEventListener(
+            "reset",
+            function() {
+
+                mensajeFormulario.textContent = "";
+
+            }
+        );
+
+
+        cargarInformacion();
+
+
+        const inicio =
+            window.location.hash ||
+            "#inicio";
+
+
+        mostrarSeccion(inicio);
+
+    </script>
+
+</body>
+</html>
